@@ -26,7 +26,7 @@ public class Pawn extends Piece {
 
             if (!logicBoard.getTile(candidateDestinationCoordinate).isTileOccupied()) {
                 legalLogicMoves.add(new LogicMove(logicBoard, this, candidateDestinationCoordinate));
-            } else if (candidateCoordinateOffset == 16 && this.isFirstMove() &&
+            } else if (candidateCoordinateOffset == 16 &&
                     ((Constants.SECOND_RANK[this.piecePosition] && this.getPieceAlliance().isBlack()) ||
                             (Constants.SEVENTH_RANK[this.piecePosition] && this.getPieceAlliance().isWhite()))) {
                 int behindCandidateDestinationCoordinate = this.piecePosition + (this.piecePlayerColor.getDirection() * 8);
