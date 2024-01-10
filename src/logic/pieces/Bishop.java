@@ -11,8 +11,6 @@ import java.util.ArrayList;
 
 public class Bishop extends Piece {
 
-    private final static int[] CANDIDATE_MOVE_VECTOR_COORDINATES = {-9, -7, 7, 9};
-
     public Bishop(int piecePosition, PlayerColor piecePlayerColor) {
         super(piecePosition, piecePlayerColor, PieceType.BISHOP);
     }
@@ -21,7 +19,7 @@ public class Bishop extends Piece {
     public ArrayList<LogicMove> calculateLegalMoves(LogicBoard logicBoard) {
         final ArrayList<LogicMove> legalLogicMoves = new ArrayList<>();
 
-        for (final int candidateCoordinateOffset : CANDIDATE_MOVE_VECTOR_COORDINATES) {
+        for (final int candidateCoordinateOffset : Constants.BISHOP_LEGAL_MOVE_COORDINATE) {
             int candidateDestinationCoordinate = this.piecePosition;
 
             while (HelperMethods.isValidTileCoordinate(candidateDestinationCoordinate)) {

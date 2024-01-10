@@ -11,15 +11,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class Knight extends Piece {
-    private final static int[] CANDIDATE_MOVE_COORDINATES = {-17, -15, -10, -6, 6, 10, 15, 17};
-
     public Knight(final int piecePosition, final PlayerColor piecePlayerColor) {
         super(piecePosition, piecePlayerColor, PieceType.KNIGHT);
     }
     @Override
     public Collection<LogicMove> calculateLegalMoves(LogicBoard logicBoard) {
         ArrayList<LogicMove> legalLogicMoves = new ArrayList<>();
-        for (final int currentCandidate : CANDIDATE_MOVE_COORDINATES) {
+        for (final int currentCandidate : Constants.KNIGHT_LEGAL_MOVE_COORDINATE) {
             int candidateDestinationCoordinate = this.piecePosition + currentCandidate;
             if (HelperMethods.isValidTileCoordinate(candidateDestinationCoordinate)) {
                 if (isFirstColumnExclusion(this.piecePosition, currentCandidate)) {

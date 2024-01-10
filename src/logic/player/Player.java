@@ -53,7 +53,6 @@ public abstract class Player {
             return new LogicMoveTransition(this.logicBoard,LogicMoveStatus.ILLEGAL_MOVE);
         }
         final LogicBoard transitionLogicBoard = logicMove.execute();
-        System.out.println(logicMove.execute());
         final ArrayList<LogicMove> kingAttacks = Player.calculateAttacksOnTile(transitionLogicBoard.getCurrentPlayer().getOpponent().getPlayerKing().getPiecePosition(), transitionLogicBoard.getCurrentPlayer().getLegalMoves());
         if (!kingAttacks.isEmpty()) {
             return new LogicMoveTransition(this.logicBoard,LogicMoveStatus.LEAVES_PLAYER_IN_CHECK);

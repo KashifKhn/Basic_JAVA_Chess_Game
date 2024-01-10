@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class Pawn extends Piece {
-    private final static int[] CANDIDATE_MOVE_VECTOR_COORDINATES = {8, 16, 7, 9};
-
     public Pawn(int piecePosition, PlayerColor piecePlayerColor) {
         super(piecePosition, piecePlayerColor, PieceType.PAWN);
     }
@@ -20,7 +18,7 @@ public class Pawn extends Piece {
     public Collection<LogicMove> calculateLegalMoves(LogicBoard logicBoard) {
         ArrayList<LogicMove> legalLogicMoves = new ArrayList<>();
 
-        for (int candidateCoordinateOffset : CANDIDATE_MOVE_VECTOR_COORDINATES) {
+        for (int candidateCoordinateOffset : Constants.PAWN_LEGAL_MOVE_COORDINATE) {
             int candidateDestinationCoordinate = this.piecePosition + (this.piecePlayerColor.getDirection() * candidateCoordinateOffset);
             if (!HelperMethods.isValidTileCoordinate(candidateDestinationCoordinate)) {
                 continue;

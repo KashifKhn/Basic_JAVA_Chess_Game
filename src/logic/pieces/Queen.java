@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class Queen extends Piece {
-    private final static int[] CANDIDATE_MOVE_VECTOR_COORDINATES = {-9, -8, -7, -1, 1, 7, 8, 9};
 
     public Queen(int piecePosition, PlayerColor piecePlayerColor) {
         super(piecePosition, piecePlayerColor, PieceType.QUEEN);
@@ -21,7 +20,7 @@ public class Queen extends Piece {
     public Collection<LogicMove> calculateLegalMoves(LogicBoard logicBoard) {
         final ArrayList<LogicMove> legalLogicMoves = new ArrayList<>();
 
-        for (final int candidateCoordinateOffset : CANDIDATE_MOVE_VECTOR_COORDINATES) {
+        for (final int candidateCoordinateOffset : Constants.QUEEN_LEGAL_MOVE_COORDINATE) {
             int candidateDestinationCoordinate = this.piecePosition;
 
             while (HelperMethods.isValidTileCoordinate(candidateDestinationCoordinate)) {

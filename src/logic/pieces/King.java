@@ -10,8 +10,6 @@ import utils.Constants;
 import java.util.ArrayList;
 
 public class King extends Piece {
-    private final static int[] CANDIDATE_MOVE_VECTOR_COORDINATES = {-9, -8, -7, -1, 1, 7, 8, 9};
-
     public King(int piecePosition, PlayerColor piecePlayerColor) {
         super(piecePosition, piecePlayerColor, PieceType.KING);
     }
@@ -19,7 +17,7 @@ public class King extends Piece {
     @Override
     public ArrayList<LogicMove> calculateLegalMoves(LogicBoard logicBoard) {
         ArrayList<LogicMove> legalLogicMoves = new ArrayList<>();
-        for (int currentCandidateOffset : CANDIDATE_MOVE_VECTOR_COORDINATES) {
+        for (int currentCandidateOffset : Constants.KING_LEGAL_MOVE_COORDINATE) {
             int candidateDestinationCoordinate = this.piecePosition + currentCandidateOffset;
             if (isFirstColumnExclusion(this.piecePosition, currentCandidateOffset) ||
                     isEighthColumnExclusion(this.piecePosition, currentCandidateOffset)) {

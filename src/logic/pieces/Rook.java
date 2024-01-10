@@ -11,8 +11,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class Rook extends Piece {
-    private final static int[] CANDIDATE_MOVE_VECTOR_COORDINATES = {-8, -1, 1, 8};
-
     public Rook(int piecePosition, PlayerColor piecePlayerColor) {
         super(piecePosition, piecePlayerColor, PieceType.ROOK);
     }
@@ -21,7 +19,7 @@ public class Rook extends Piece {
     public Collection<LogicMove> calculateLegalMoves(LogicBoard logicBoard) {
         final ArrayList<LogicMove> legalLogicMoves = new ArrayList<>();
 
-        for (int candidateCoordinateOffset : CANDIDATE_MOVE_VECTOR_COORDINATES) {
+        for (int candidateCoordinateOffset : Constants.ROOK_LEGAL_MOVE_COORDINATE) {
             int candidateDestinationCoordinate = this.piecePosition;
 
             while (HelperMethods.isValidTileCoordinate(candidateDestinationCoordinate)) {
