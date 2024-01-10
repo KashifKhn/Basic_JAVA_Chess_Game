@@ -5,7 +5,7 @@ public class LogicMoveTransition {
     private final LogicBoard transitionLogicBoard;
     private final LogicMoveStatus logicMoveStatus;
 
-    public LogicMoveTransition(LogicBoard transitionLogicBoard, LogicMove logicMove, LogicMoveStatus logicMoveStatus) {
+    public LogicMoveTransition(LogicBoard transitionLogicBoard, LogicMoveStatus logicMoveStatus) {
         this.transitionLogicBoard = transitionLogicBoard;
         this.logicMoveStatus = logicMoveStatus;
     }

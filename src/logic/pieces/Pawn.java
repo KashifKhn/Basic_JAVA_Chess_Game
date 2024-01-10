@@ -1,7 +1,6 @@
 package logic.pieces;
 
 import logic.board.LogicBoard;
-import logic.board.logicMovePkg.LogicMajorMove;
 import logic.board.logicMovePkg.LogicMove;
 import utils.HelperMethods;
 import utils.PlayerColor;
@@ -28,16 +27,14 @@ public class Pawn extends Piece {
             }
 
             if (!logicBoard.getTile(candidateDestinationCoordinate).isTileOccupied()) {
-//                legalLogicMoves.add(new LogicMove.MajorLogicMove(logicBoard, this, candidateDestinationCoordinate));
-                legalLogicMoves.add(new LogicMajorMove(logicBoard, this, candidateDestinationCoordinate));
+                legalLogicMoves.add(new LogicMove(logicBoard, this, candidateDestinationCoordinate));
             } else if (candidateCoordinateOffset == 16 && this.isFirstMove() &&
                     ((Constants.SECOND_RANK[this.piecePosition] && this.getPieceAlliance().isBlack()) ||
                             (Constants.SEVENTH_RANK[this.piecePosition] && this.getPieceAlliance().isWhite()))) {
                 int behindCandidateDestinationCoordinate = this.piecePosition + (this.piecePlayerColor.getDirection() * 8);
                 if (!logicBoard.getTile(behindCandidateDestinationCoordinate).isTileOccupied() &&
                         !logicBoard.getTile(candidateDestinationCoordinate).isTileOccupied()) {
-//                    legalLogicMoves.add(new LogicMove.MajorLogicMove(logicBoard, this, candidateDestinationCoordinate));
-                    legalLogicMoves.add(new LogicMajorMove(logicBoard, this, candidateDestinationCoordinate));
+                    legalLogicMoves.add(new LogicMove(logicBoard, this, candidateDestinationCoordinate));
                 }
             } else if (candidateCoordinateOffset == 7 &&
                     !((Constants.EIGHTH_FILE[this.piecePosition] && this.piecePlayerColor.isWhite() ||
@@ -45,8 +42,7 @@ public class Pawn extends Piece {
                 if (logicBoard.getTile(candidateDestinationCoordinate).isTileOccupied()) {
                     Piece pieceOnCandidate = logicBoard.getTile(candidateDestinationCoordinate).getPiece();
                     if (this.piecePlayerColor != pieceOnCandidate.getPieceAlliance()) {
-//                        legalLogicMoves.add(new LogicMove.MajorLogicMove(logicBoard, this, candidateDestinationCoordinate));
-                        legalLogicMoves.add(new LogicMajorMove(logicBoard, this, candidateDestinationCoordinate));
+                        legalLogicMoves.add(new LogicMove(logicBoard, this, candidateDestinationCoordinate));
                     }
                 }
             } else if (candidateCoordinateOffset == 9 &&
@@ -55,8 +51,7 @@ public class Pawn extends Piece {
                 if (logicBoard.getTile(candidateDestinationCoordinate).isTileOccupied()) {
                     Piece pieceOnCandidate = logicBoard.getTile(candidateDestinationCoordinate).getPiece();
                     if (this.piecePlayerColor != pieceOnCandidate.getPieceAlliance()) {
-//                        legalLogicMoves.add(new LogicMove.MajorLogicMove(logicBoard, this, candidateDestinationCoordinate));
-                        legalLogicMoves.add(new LogicMajorMove(logicBoard, this, candidateDestinationCoordinate));
+                        legalLogicMoves.add(new LogicMove(logicBoard, this, candidateDestinationCoordinate));
                     }
                 }
             }

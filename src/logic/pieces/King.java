@@ -2,8 +2,6 @@ package logic.pieces;
 
 import logic.board.LogicBoard;
 import logic.board.logicBoardTilePkg.LogicTile;
-import logic.board.logicMovePkg.LogicAttackMove;
-import logic.board.logicMovePkg.LogicMajorMove;
 import logic.board.logicMovePkg.LogicMove;
 import utils.HelperMethods;
 import utils.PlayerColor;
@@ -30,15 +28,12 @@ public class King extends Piece {
             if (HelperMethods.isValidTileCoordinate(candidateDestinationCoordinate)) {
                 LogicTile candidateDestinationLogicTile = logicBoard.getTile(candidateDestinationCoordinate);
                 if (!candidateDestinationLogicTile.isTileOccupied()) {
-//                    legalLogicMoves.add(new LogicMove.MajorLogicMove(logicBoard, this, candidateDestinationCoordinate));
-                    legalLogicMoves.add(new LogicMajorMove(logicBoard, this, candidateDestinationCoordinate));
+                    legalLogicMoves.add(new LogicMove(logicBoard, this, candidateDestinationCoordinate));
                 } else {
                     final Piece pieceAtDestination = candidateDestinationLogicTile.getPiece();
                     final PlayerColor piecePlayerColor = pieceAtDestination.getPieceAlliance();
                     if (this.piecePlayerColor != piecePlayerColor) {
-//                        legalLogicMoves.add(new LogicMove.AttackLogicMove(logicBoard, this, candidateDestinationCoordinate, pieceAtDestination));
-                        legalLogicMoves.add(new LogicAttackMove(logicBoard, this, candidateDestinationCoordinate,
-                                pieceAtDestination));
+                        legalLogicMoves.add(new LogicMove(logicBoard, this, candidateDestinationCoordinate));
                     }
                 }
             }

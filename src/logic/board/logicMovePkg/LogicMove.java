@@ -2,7 +2,7 @@ package logic.board.logicMovePkg;
 
 import logic.board.LogicBoard;
 import logic.pieces.Piece;
-public abstract class LogicMove {
+public class LogicMove {
     final LogicBoard logicBoard;
     final Piece movedPiece;
     final int destinationCoordinate;
@@ -39,6 +39,5 @@ public abstract class LogicMove {
     public Piece getMovedPiece() {
         return this.movedPiece;
     }
-
 
 }

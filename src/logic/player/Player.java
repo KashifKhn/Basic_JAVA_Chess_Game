@@ -50,15 +50,15 @@ public abstract class Player {
 
     public LogicMoveTransition makeMove(final LogicMove logicMove) {
         if (!isMoveLegal(logicMove)) {
-            return new LogicMoveTransition(this.logicBoard, logicMove, LogicMoveStatus.ILLEGAL_MOVE);
+            return new LogicMoveTransition(this.logicBoard,LogicMoveStatus.ILLEGAL_MOVE);
         }
         final LogicBoard transitionLogicBoard = logicMove.execute();
         System.out.println(logicMove.execute());
         final ArrayList<LogicMove> kingAttacks = Player.calculateAttacksOnTile(transitionLogicBoard.getCurrentPlayer().getOpponent().getPlayerKing().getPiecePosition(), transitionLogicBoard.getCurrentPlayer().getLegalMoves());
         if (!kingAttacks.isEmpty()) {
-            return new LogicMoveTransition(this.logicBoard, logicMove, LogicMoveStatus.LEAVES_PLAYER_IN_CHECK);
+            return new LogicMoveTransition(this.logicBoard,LogicMoveStatus.LEAVES_PLAYER_IN_CHECK);
         }
-        return new LogicMoveTransition(transitionLogicBoard, logicMove, LogicMoveStatus.DONE);
+        return new LogicMoveTransition(transitionLogicBoard, LogicMoveStatus.DONE);
     }
 
     public ArrayList<LogicMove> getLegalMoves() {
